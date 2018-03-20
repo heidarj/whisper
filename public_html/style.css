@@ -30,7 +30,7 @@ header, footer {
 }
 
 @media (max-width: 800px) {
-	header {
+	header, footer {
 		--header-grid-template-column: 1fr;
 		--header-grid-auto-rows: 1fr;
 		--header-padding: 0 20px;
@@ -39,7 +39,7 @@ header, footer {
 }
 
 @media (min-width: 801px) {
-	header {
+	header, footer {
 		--header-grid-template-column: repeat(6, 1fr);
 		--header-grid-gap: 20px;
 		--header-padding: 15px;
