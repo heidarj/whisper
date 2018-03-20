@@ -3,16 +3,25 @@
 <head>
 	<meta charset='utf-8' />
 	<title>Page Title</title>
-	<link rel='stylesheet' type='text/css' media='screen' href='style.css' />
-	<script src='app.js'></script>
+	<link rel='stylesheet' type='text/css' media='screen' href='base.css' />
+	<link rel='stylesheet' type='text/css' media='screen' href='index.css' />
 </head>
 
 <body>
 	<header>
 		<h1>Whisper</h1>
 	</header>
-	<div id="content">
-
+	<div class="container">
+		<div id="chatconsole" onclick="document.getElementById('messagebox').focus()">
+			<ul id="messages">
+				<li>Welcome to whisper</li>
+				<li>Please submit your username:</li>
+			</ul>
+		</div>
+		<div class="message">
+			<input type="text" name="messagebox" id="messagebox">
+			<button id="send" onclick="sendMessage()">Send</button>
+		</div>
 	</div>
 	<footer>
 		<h2>Yeboi design</h2>
@@ -20,9 +29,6 @@
 </body>
 
 <script src="/socket.io/socket.io.js"></script>
-<script>
-//var socket = io();
-
-</script>
+<script src='app.js'></script>
 
 </html>
