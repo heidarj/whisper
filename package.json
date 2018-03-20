@@ -1,0 +1,18 @@
+{
+	"name": "whisper",
+	"version": "0.0.1",
+	"description": "Chat and collaboration server",
+	"main": "server.js",
+	"scripts": {
+		"test": "nodemon server.js"
+	},
+	"keywords": [
+		"chat"
+	],
+	"author": "Heiðar Hólmberg Jónsson",
+	"license": "MIT",
+	"dependencies": {
+		"express": "^4.16.3",
+		"socket.io": "^2.0.4"
+	}
+}
