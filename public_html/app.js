@@ -17,6 +17,8 @@ var chatconsole = document.getElementById("chatconsole");
 var inputbox = document.getElementById("inputbox");
 var messages = document.getElementById("messages");
 
+var sentMessages = [];
+
 chatconsole.onclick = function() {
 	inputbox.focus();
 };
@@ -26,8 +28,13 @@ messages.onclick = function() {
 };
 
 inputbox.onkeydown = function(e) {
+	// enter
 	if (e.keyCode == 13) {
 		sendMessage();
+	}
+	// up arrow
+	else if (e.keyCode == 38) {
+
 	}
 };
 
@@ -41,6 +48,7 @@ function sendMessage() {
 				socket.emit("message", inputbox.value);
 				break;
 		}
+		sentMessages.push(inputbox);
 		inputbox.value = "";
 	}
 }

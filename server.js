@@ -1,9 +1,29 @@
+var port = process.env.port || 80;
+
 var express = require("express");
 var app = express();
-var server = app.listen(3000);
+var server = app.listen(port);
 //var bodyParser = require("body-parser");
 var socket = require("socket.io");
 var io = socket(server);
+
+var crypto = require("crypto");
+
+// Azure SQL DB connection
+//const Sequelize = require("sequelize");
+//// init DB connection
+//const sequelize = new Sequelize("whisperDB", "username", "password", {
+//	host: "whisperdb.database.windows.net",
+//	dialect: "mssql",
+//	operatorsAliases: false,
+//
+//	pool: {
+//		max: 5,
+//		min: 0,
+//		acquire: 30000,
+//		idle: 10000
+//	}
+//});
 
 function HSLstring(h, s, l) {
 	return "hsl(" + h + ", " + s + "%, " + l + "%)";
@@ -14,6 +34,13 @@ var User = function(id, username, color) {
 	this.username = username;
 	this.color = color;
 };
+
+crypto.pbkdf2(
+	"Password", "salt", 1, 64, "sha512",
+	(err, key) => {
+		console.log(key.toString("hex"));
+	}
+);
 
 app.use("/", express.static("public_html"));
 
