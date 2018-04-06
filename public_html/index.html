@@ -2,32 +2,157 @@
 
 <head>
 	<meta charset='utf-8' />
-	<title>Page Title</title>
-	<link rel='stylesheet' type='text/css' media='screen' href='base.css' />
-	<link rel='stylesheet' type='text/css' media='screen' href='index.css' />
+	<title>Whisper</title>
+	<link rel="stylesheet" href="/css/jquery-ui.css">
+	<link id="style" rel="stylesheet" href="/css/whisper.min.css">
 </head>
 
-<body>
-	<div id="chatconsole" onclick="document.getElementById('inputbox').focus()">
-		<ul id="messages">
 
-		</ul>
-	</div>
-	<div class="message">
-		<input type="text" name="inputbox" id="inputbox">
-		<button id="send" onclick="sendMessage()">Send</button>
-	</div>
-	<div id="loginOverlay">
-		<div id="loginCard">
-			<h1>Whisper</h1>
-			<p>Please enter your preferred username:</p>
-			<input type="text" id="username">
-			<button id="submitUsername">Let's go!</button>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-primary bg-primary">
+		<a class="navbar-brand font-weight-100 font-italic" href="#"><i class="fal fa-comment-exclamation fa-lg"></i> Whisper</a>
+		<button class="btn btn-success ml-auto" data-toggle="modal" data-target="#loginPrompt"><i class="fal fa-user fa-lg"></i> Login</button>
+	</nav>
+	<div class="modal text-dark" id="loginPrompt" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Welcome to Whisper</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<ul class="nav nav-tabs">
+						<li class="nav-item active">
+							<a class="nav-link active text-primary" data-toggle="tab" href="#login">Login</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-primary" data-toggle="tab" href="#signup">Sign up</a>
+						</li>
+					</ul>
+					<div class="tab-content m-3">
+						<div id="login" class="tab-pane active">
+							<form id="loginform">
+								<div class="form-group" id="">
+									<label for="usernameLogin">Username</label>
+									<input type="text" class="form-control" id="usernameLogin">
+								</div>
+								<div class="form-group" id="">
+									<label for="passwordLogin">Password</label>
+									<input type="password" class="form-control" id="passwordLogin">
+								</div>
+								<button type="button" class="btn btn-success" id="submitLogin">Login</button>
+								<p class="text-danger mt-3" id="loginFail" style="display: none">Wrong username or password</p>
+							</form>
+						</div>
+						<div id="signup" class="tab-pane">
+							<form id="signupform">
+								<div class="form-group">
+									<label for="emailSignup">Email address</label>
+									<input type="email" class="form-control" id="emailSignup">
+									<small class="form-text text-muted">Optional, used for account verification and recovery</small>
+								</div>
+								<div class="form-group">
+									<label for="usernameSignup">Username</label>
+									<input type="text" class="form-control" id="usernameSignup">
+								</div>
+								<div class="form-group">
+									<label for="passwordSignup">Password</label>
+									<input type="password" class="form-control" id="passwordSignup">
+								</div>
+								<button type="button" class="btn btn-success" id="submitSignup">Signup</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-</body>
+	<div class="container p-5">
+		<div class="row pb-5">
+			<div class="card-deck">
+				<div class="card card-secondary">
+					<div class="card-img-top">
+						<a class="badge badge-primary img-overlay-credit text-1-25-em font-weight-100" href="https://unsplash.com/@tinaflour?utm_medium=referral&utm_campaign=photographer-credit" target="_blank" rel="noopener noreferrer" title="Photo by Kristina Flour">
+							<i class="fal fa-camera-alt"></i> Kristina Flour
+						</a>
+						<img class="card-img-top" src="/img/whisper.jpg">
+					</div>
+					<div class="card-body d-flex flex-column">
+						<h4 class="card-title text-primary-darker">What is Whisper</h4>
+						<p class="card-text">Whisper is a chat platform utilizing new web technologies such as websoockets for low latency HTTPS messaging</p>
+						<a href="" class="btn btn-primary mt-auto"><i class="fal fa-question-circle fa-lg"></i> Learn more</a>
+					</div>
+				</div>
+				<div class="card card-secondary">
+					<div class="card-img-top">
+						<a class="badge badge-primary img-overlay-credit text-1-25-em font-weight-100" href="https://unsplash.com/@casparrubin?utm_medium=referral&utm_campaign=photographer-credit" target="_blank" rel="noopener noreferrer" title="Photo by Caspar Rubin">
+							<i class="fal fa-camera-alt"></i> Caspar Rubin
+						</a>
+						<img class="card-img-top" src="/img/coding.jpg">
+					</div>
+					<div class="card-body d-flex flex-column">
+						<h4 class="card-title text-primary-darker">Fork me!</h4>
+						<p class="card-text">Whisper is on Github, you can fork it, change it and make pull requests. Or just download it and host your own server</p>
+						<a href="" class="btn btn-primary mt-auto"><i class="fab fa-github fa-lg"></i> Check it out!</a>
+					</div>
+				</div>
+				<div class="card card-secondary">
+					<div class="card-img-top">
+						<a class="badge badge-primary img-overlay-credit text-1-25-em font-weight-100" href="https://unsplash.com/@casparrubin?utm_medium=referral&utm_campaign=photographer-credit" target="_blank" rel="noopener noreferrer" title="Photo by Cytonn Photography">
+									<i class="fal fa-camera-alt"></i> Cytonn Photography
+								</a>
+						<img class="card-img-top" src="/img/sign.jpg">
+					</div>
+					<div class="card-body d-flex flex-column">
+						<h4 class="card-title text-primary-darker">Get started</h4>
+						<p class="card-text">Create an account and start chatting. Email address are optional, although you can provide it to secure your account and enable password recovery</p>
+						<a href="" class="btn btn-success mt-auto" data-toggle="modal" data-target="#loginPrompt"><i class="fal fa-user-plus fa-lg"></i> Sign up</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="jumbotron jumbotron-about">
+				<h1 class="display-4 mb-5">About the project</h1>
 
-<script src="/socket.io/socket.io.js"></script>
-<script src='app.js'></script>
+				<div class="media">
+					<div class="d-flex mr-3 justify-content-center" style="height: 96px; width: 96px;">
+						<i class="far fa-info fa-5x"></i>
+					</div>
+					<div class="media-body">
+						<h4>Why?</h4>
+						<p>Whisper was created for an assignment at <a href="ru.is">Reykjavik University.</a> The Project involved creating a chat website which ran on <a href="https://nodejs.org">Node.js</a> and used <a href="https://socket.io">Socket.io</a> for "real-time event-based communications"</p>
+					</div>
+				</div>
+				<hr>
+				<div class="media">
+					<img src="/img/heidar.jpg" alt="" class="d-flex mr-3">
+					<div class="media-body">
+						<h4>Who?</h4>
+						<p>My is Heiðar Hólmberg Jónsson, I have been an enthusiast coder for a couple of years and my plans are to complete a bachelor's degree in computer science from Reykjavik University</p>
+					</div>
+				</div>
+				<hr>
+				<div class="media">
+					<div class="d-flex mr-3 justify-content-center" style="height: 96px; width: 96px;">
+						<i class="far fa-clock fa-5x"></i>
+					</div>
+					<div class="media-body">
+						<h4>when?</h4>
+						<p>I started this assignment late March 2018 and it is due the 6th of April. I want to keep working on this project and be active on <a href="https://github.com/heidarj/whisper">Github</a>, but can't make any promises.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+</body>
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/js/jquery-ui.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+<script src='/js/index.js'></script>
 
 </html>

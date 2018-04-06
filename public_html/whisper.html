@@ -1,0 +1,74 @@
+<html>
+
+<head>
+	<meta charset='utf-8' />
+	<title>Whisper</title>
+	<link rel="stylesheet" href="/css/jquery-ui.css">
+	<link id="style" rel="stylesheet" href="/css/whisper.min.css">
+</head>
+
+
+<body>
+	<nav class="navbar navbar-primary bg-primary">
+		<a class="navbar-brand font-weight-100 font-italic mr-auto" href="#"><i class="fal fa-comment-exclamation fa-lg"></i> Whisper</a>
+		<button class="btn btn-outline-secondary mx-2" data-toggle="modal" data-target="#settingsModal"><i class="fal fa-cog fa-lg"></i> Settings</button>
+		<button class="btn btn-outline-secondary mx-2" id="logout"><i class="fal fa-user fa-lg"></i> Logout</button>
+	</nav>
+	<div class="container m-5">
+		<div class="row">
+			<div class="col-8">
+				<div class="card card-dark draggable" id="chatCard">
+					<div class="card-header text-light draggable-handle" id="chatCardHeader">
+						<h5>Lobby</h5>
+					</div>
+					<div class="card-body chat" id="chatconsole" onclick="document.getElementById('inputbox').focus()">
+						<ul id="messages">
+
+						</ul>
+					</div>
+					<div class="card-footer input-group">
+						<textarea class="form-control bg-light" type="text" name="inputbox" id="inputbox"></textarea>
+						<button class="btn btn-primary" id="send" onclick="sendMessage()">Send</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-4">
+				<div class="card card-secondary draggable">
+					<div class="card-header draggable-handle">
+						<h5 class="text-primary">Rooms<a href="" class="float-right"></a></h5>
+					</div>
+					<div id="roomList" class="card-body text-white">
+						<div class="card card-primary">
+							<div class="card-header"><a href="#" data-toggle="collapse" data-target="#connectedLobbyCollapse" class="card-link text-white">Lobby<i class="far fa-angle-down fa-lg float-right"></i></a></div>
+							<div id="connectedLobbyCollapse" class="card-body bg-primary-lighter collapse show">
+								<h5>Users in room:</h5>
+								<ul id="connectedLobby">
+
+								</ul>
+							</div>
+						</div>
+						<div class="card card-primary">
+							<div class="card-header"><a href="#" data-toggle="collapse" data-target="#connectedPrivateCollapse" class="card-link text-white">Private<i class="far fa-angle-down fa-lg float-right"></i></a></div>
+							<div id="connectedPrivateCollapse" class="card-body bg-primary-lighter collapse show">
+								<h5>Users in room:</h5>
+								<ul id="connectedPrivate">
+
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/js/jquery-ui.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+
+<script src='/js/whisper.js'></script>
+
+</html>
