@@ -18,7 +18,6 @@ function verifyToken(token, callback) {
 	req.onreadystatechange = function() {
 		callback(this.status);
 	};
-	console.log("req");
 	req.send();
 }
 
@@ -67,31 +66,26 @@ function postLogin() {
 }
 
 submitSignup.addEventListener("click", () => {
-	postSignup(usernameSignup.value, passwordSignup.value, emailSignup.value, (status, response) => {
-		if (status != 201) {
-			console.log(response);
-		} else {
-			localStorage.setItem("token", response);
-			window.location = "/whisper.html";
-		}
-	});
-});
 
-function postSignup(username, password, email, callback) {
 	let req = new XMLHttpRequest();
 	req.open("POST", "/signup", true);
 
 	req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
 	req.onreadystatechange = function() {
-		callback(req.status, req.response);
+		if (req.status == 201) {
+			localStorage.setItem("token", response);
+			window.location = "/whisper.html";
+		} else {
+			alert("Unknown error, try again.");
+		}
 	};
 
 	let user = JSON.stringify({
-		username: username,
-		password: password,
-		email: email
+		username: usernameSignup.value,
+		password: passwordSignup.value,
+		email: emailSignup.value
 	});
 
 	req.send(user);
-}
+});
