@@ -72,7 +72,7 @@ submitSignup.addEventListener("click", () => {
 
 	req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
-	req.onreadystatechange = function() {
+	req.load = function() {
 		if (req.status == 201) {
 			localStorage.setItem("token", response);
 			window.location = "/whisper.html";
