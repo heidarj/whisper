@@ -1,0 +1,36 @@
+// Overwrite Bootstrap's variables here
+// You can find them in node_modules/bootstrap/scss/_variables.scss
+// Copy the variables you need into this file, don't modify files under node_modules/
+// Some example variables that you can uncomment:
+// Enabling shadows and gradients
+//$enable-shadows: true;
+//$enable-gradients: true;
+// Changing the body background and text
+//$body-bg: #d3e9eb;
+// $body-color: #151417;
+// Changing the border radius of buttons
+// $border-radius: 7px;
+// Changing the theme colors
+$primary: #2C67AD;
+$secondary: #CDEFFF;
+$success: #65B260;
+$info: #FFFC7F;
+$warning: #FE9076;
+$danger: #EE4455;
+$light: #FCFBE3;
+$dark: #393C4B;
+
+//$link-color: $light;
+$fa-font-path: "../webfonts";
+
+// Adding (!) an additional theme color (ex. classes btn-cool, bg-cool)
+//$theme-colors: (
+//  "cool": #4d3fa3
+//);
+$em-sizes: ( "1-25-em": 1.25em,
+"1-33-em": 1.33em,
+"1-5-em": 1.5em,
+"2-em": 2em,
+"2-25-em": 2.25em,
+"2-5-em": 2.5em,
+);
