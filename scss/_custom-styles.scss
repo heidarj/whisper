@@ -1,0 +1,154 @@
+// Add additional styles here. For example, overwrite certain styles or add new components.
+// Tip: You can use bootstrap's powerful mixins here!
+//.alert-myalert {
+//  @include alert-variant(#60667d, #1d1d1d, #f4fdff);
+//}
+//@each $color, $value in $theme-colors {
+//  .alert-#{$color} {
+//    box-shadow: 3px 3px theme-color-level($color, -3);
+//  }
+//}
+@each $color, $value in $theme-colors {
+	.card-#{$color} {
+		background-color: theme-color($color);
+		&.hover,
+		&:hover {
+			box-shadow: 0px 0px 10px theme-color-level($color, 3);
+		}
+	}
+	.card-#{$color}>.chat {
+		background-color: theme-color-level($color, -1)
+	}
+}
+
+.form-control, .btn, .btn-primary, .btn-secondary {
+	&.focus,
+	&:focus {
+		box-shadow: none;
+	}
+}
+
+#inputbox {
+	height: 2em;
+	padding: 0.55em;
+}
+
+ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+#chatconsole {
+	overflow-y: auto;
+	resize: vertical;
+	height: 300px;
+}
+
+textarea {
+	min-height: 3em;
+}
+
+@each $color, $value in $theme-colors {
+	.text-#{$color}-lighter {
+		color: theme-color-level($color, -3);
+	}
+	.text-#{$color}-darker {
+		color: theme-color-level($color, 3);
+	}
+}
+
+@each $color, $value in $theme-colors {
+	.bg-#{$color}-lighter {
+		background-color: theme-color-level($color, -3);
+	}
+	.bg-#{$color}-darker {
+		background-color: theme-color-level($color, 3);
+	}
+}
+
+.img-overlay-credit {
+	opacity: 0;
+	position: absolute;
+}
+
+.card-img-top:hover>.img-overlay-credit {
+	opacity: 1;
+}
+
+@each $size, $value in $em-sizes {
+	.text-#{$size} {
+		font-size: $value;
+	}
+}
+
+.font-weight-100 {
+	font-weight: 100;
+}
+
+.nav-link, .navbar-brand {
+	color: white;
+	&:hover {
+		color: #01D2FF;
+	}
+}
+
+.jumbotron-about {
+	box-shadow: 3px 3px 3px gray;
+}
+
+.jumbotron-about>.media {
+	padding-top: 25px;
+}
+
+.hover-zomm:hover {
+	z-index: 100;
+	background-size: 100% 100%;
+	transform: scale(1.1, 1.1);
+	transform-origin: center;
+}
+
+li {
+	color: white;
+}
+
+li[isadmin="undefined"]::before, li[isadmin="false"]::before {
+	content: attr(username) " > ";
+	color: #0f0;
+}
+
+li[isadmin="true"]::before {
+	content: attr(username) " > ";
+	color: #f80;
+}
+
+#roomList .card {
+	margin-bottom: 20px;
+}
+
+a[aria-expanded="true"]>i {
+	transition: 300ms ease all;
+}
+
+a[aria-expanded="false"]>i {
+	transform: rotate(-90deg);
+	transition: 300ms ease all;
+}
+
+#roomlist ul>li {
+	padding: 5px 10px;
+}
+
+#roomlist ul>li::after {
+	content: " is typing...";
+	font-size: 0.75em;
+	opacity: 0;
+	transition: opacity 0.5s ease;
+}
+
+#roomlist ul>li.typing::after {
+	opacity: 1;
+}
+
+.draggable-handle {
+	cursor: move;
+}

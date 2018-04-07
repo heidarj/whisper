@@ -4,7 +4,9 @@
 	"description": "Chat and collaboration server",
 	"main": "server.js",
 	"scripts": {
-		"test": "nodemon server.js"
+		"test": "nodemon server.js --config nodemon.json",
+		"gulp-build": "gulp build-theme",
+		"gulp-watch": "gulp watch"
 	},
 	"keywords": [
 		"chat"
@@ -12,7 +14,24 @@
 	"author": "Heiðar Hólmberg Jónsson",
 	"license": "MIT",
 	"dependencies": {
+		"chokidar": "^2.0.3",
+		"cookie-parser": "^1.4.3",
 		"express": "^4.16.3",
-		"socket.io": "^2.0.4"
+		"jsonwebtoken": "^8.2.0",
+		"sequelize": "^4.37.4",
+		"socket.io": "^2.0.4",
+		"tedious": "^2.3.1",
+		"bootstrap": "^4.0.0",
+		"jquery": "^3.2.1",
+		"popper.js": "^1.13.0",
+		"autoprefixer": "^7.2.3",
+		"gulp": "^3.9.1",
+		"gulp-clean-css": "^3.9.1",
+		"gulp-postcss": "^7.0.0",
+		"gulp-rename": "^1.2.2",
+		"gulp-sass": "^3.1.0",
+		"gulp-scss-lint": "^0.4.0",
+		"gulp-sourcemaps": "^2.6.2",
+		"gulp-cli": "^2.0.1"
 	}
 }
