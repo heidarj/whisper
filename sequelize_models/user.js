@@ -17,10 +17,7 @@ module.exports = (sequelize, DataTypes) => {
 				len: [8, 200]
 			}
 		},
-		email: {
-			type: DataTypes.STRING,
-			unique: true
-		},
+		email: DataTypes.STRING,
 		avatar: DataTypes.STRING,
 		token: DataTypes.STRING,
 		admin: DataTypes.BOOLEAN
