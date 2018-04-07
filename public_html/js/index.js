@@ -15,7 +15,7 @@ function verifyToken(token, callback) {
 	let req = new XMLHttpRequest();
 	req.open("GET", "/auth", true);
 	req.setRequestHeader("Authorization", ("Bearer " + token));
-	req.onreadystatechange = function() {
+	req.onload = function() {
 		callback(this.status);
 	};
 	req.send();
@@ -72,7 +72,7 @@ submitSignup.addEventListener("click", () => {
 
 	req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
-	req.load = function() {
+	req.onload = function() {
 		if (req.status == 201) {
 			localStorage.setItem("token", response);
 			window.location = "/whisper.html";
