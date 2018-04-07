@@ -74,10 +74,11 @@ submitSignup.addEventListener("click", () => {
 
 	req.onload = function() {
 		if (req.status == 201) {
-			localStorage.setItem("token", response);
+			localStorage.setItem("token", req.response);
 			window.location = "/whisper.html";
 		} else {
 			alert("Unknown error, try again.");
+			console.log(req);
 		}
 	};
 

@@ -44,7 +44,7 @@ sequelize.authenticate().then(() => {
 var User = sequelize.import("./sequelize_models/user.js");
 
 sequelize.sync({
-	//force: true
+	force: true
 });
 
 var express = require("express");
